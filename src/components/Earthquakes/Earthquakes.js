@@ -14,7 +14,14 @@ class Earthquakes extends PureComponent {
     return (
       <div className="Earthquakes">
         <EarthquakeFilter onInput={updateFilter} />
-        {/* render all your earthquake rows here! */}
+        <table>
+          <EarthquakesHeader />
+          <tbody>
+            {this.props.earthquakes.map(earthquake => (
+              <EarthquakeRow {...earthquake} />
+            ))}
+          </tbody>
+        </table>
       </div>
     );
   }
